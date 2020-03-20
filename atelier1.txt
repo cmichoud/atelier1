@@ -1,0 +1,51 @@
+Clement Michoudet
+#########################
+###     ATELIER 1     ###
+###   -------------   ###
+###    ANALYSE DE     ###
+###      TRAFFIC      ###
+######    20/03    ######
+#########################
+
+------------------------
+| ANALYSE DE TRAFFIC I |
+------------------------
+
+Commande "curl http://capgchamb1.goffinet.net:8003"
+
+1) Mon serveur GNS3 est le suivant : "capgchamb1.goffinet.net"
+   Cette commande sert à effectuer des requets HTTP à un serveur, ici le serveur du cloud contenant notre topologie.
+   Par défaut c'est la requete GET qui est envoyée, elle sert à récupérer ce qu'il se trouve à l'URL indiqué.
+
+2) Enregistrement de la capture
+
+3) Le port source est 58588, on peut le voir sur la ligne de wiresharck correspondant au SYN du protocole TCP. Le port de destination est 8003, visible dans la commande.
+
+4) La commande de couche application est HTTP donc le numero de paquet contenant cette commande est la 13.
+
+5) La session commence avec le SYN donc paquet 10 et se termine avec le ACK du FIN,ACK donc paquet 21
+
+
+
+
+-------------------------
+| ANALYSE DE TRAFFIC II |
+-------------------------
+
+Commande "dig @ns1.google.com -t TXT o-o.myaddr.l.google.com +short -4"
+
+1) La commande 'dig' sert à interroger et/ou tester un serveur DNS, ici celui de google (@ns1.google.com). Nous utilisons 3 options. La commande 'man dig' nous renseigne :
+-t TXT : type de la réponse au format text
++short : qui raccourcie la réponse
+-4 : qui précise l'adresse de destination en IPv4 seulement
+
+
+2) Enregistrement de la capture.
+
+3) Une seule, une demande suivie d'un réponse.
+
+4) La question posée est "qu'elle est l'adresse IP de o-o.myaddr.l.google.com ?". La réponse s'affiche : "51.15.198.172".
+
+5) La question est posée à ns1.google.com (216.239.32.10), l'un des DNS de google.
+
+
